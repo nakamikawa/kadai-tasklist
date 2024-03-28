@@ -13,15 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('messages', function (Blueprint $table) {
-            $table->string('title');
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->string('status', 10)->nullable();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::table('messages', function (Blueprint $table) {
-            $table->dropColumn('title');
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->dropColumn('status');
         });
     }
 };

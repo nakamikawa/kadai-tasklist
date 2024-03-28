@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\TasksController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MessagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +14,9 @@ use App\Http\Controllers\MessagesController;
 |
 */
 
-Route::get('/', [MessagesController::class, 'index']);
-Route::resource('messages', MessagesController::class);
+
+Route::redirect('/', '/tasks'); // トップページへのアクセスは /tasks へリダイレクト
+
+Route::resource('tasks', TasksController::class); // タスクを管理するためのRESTfulなルートを定義
+
+
